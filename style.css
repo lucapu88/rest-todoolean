@@ -12,7 +12,11 @@ header {
   margin: 0px 10px 0px 10px;
   width: 200px;
 }
-#lista-container li {
+main {
   display: flex;
   justify-content: center;
+}
+#lista-container li {
+  display: flex;
+  list-style-type: none;
 }

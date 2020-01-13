@@ -13,8 +13,8 @@
   <body>
     <header>
       <h1>Lista spesa</h1>
-      <input class="myInput" type="text" value="" placeholder=" inserisci qualcosa nella tua lista">
-      <button> Aggiungi </button>
+      <input class="myInput" type="text" value="" placeholder=" Inserisci qualcosa nella tua lista">
+      <button class="add"> Aggiungi </button>
     </header>
     <main>
       <ul id="lista-container">
@@ -22,7 +22,7 @@
       </ul>
     </main>
     <script id="myTemplate" type="text/x-handlebars-template">
-
+      <li data-id= {{ id }}> {{ elemento }}</li>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="porta.js" charset="utf-8"></script>
