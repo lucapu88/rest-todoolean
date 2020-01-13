@@ -19,4 +19,9 @@ main {
 #lista-container li {
   display: flex;
   list-style-type: none;
+  margin: 5px;
+}
+.delete {
+  cursor: pointer;
+  margin-right: 5px;
 }

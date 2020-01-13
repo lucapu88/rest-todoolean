@@ -22,7 +22,9 @@
       </ul>
     </main>
     <script id="myTemplate" type="text/x-handlebars-template">
-      <li data-id= {{ id }}> {{ elemento }}</li>
+      <li data-id= {{ id }}>
+        <i class="far fa-trash-alt delete"></i> {{ elemento }}
+      </li>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="porta.js" charset="utf-8"></script>
