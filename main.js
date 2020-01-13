@@ -3,17 +3,24 @@ $(document).ready(function(){
   var template_html = $('#myTemplate').html();//recupero il codice html del template
   var template_function = Handlebars.compile(template_html);//do in pasto a handlebars il codice html
   creaLista();
-$('.add').click(function(){
+$('.add').click(function(){ //al click sul pulsante aggiungi
   var nuovoInserimento = $('.myInput').val().trim(); //prendo ciò che l'utente scrive
   if (nuovoInserimento.length > 0) { //se ho scritto qualcosa dentro l'input
     $('.myInput').val(' '); //resetto l'input ad ogni ricerca
     aggiungiLista(nuovoInserimento); //vado a chiamare la mia funzione passandogli come parametro ciò che viene inserito nell'input
   }
 });
+$('.myInput').keypress(function(event) { //quando si è in posizione dell'input e viene premuto INVIO
+    var nuovoInserimento = $('.myInput').val().trim(); //prendo ciò che l'utente scrive
+    if (event.which == 13 && nuovoInserimento != 0) { // se viene premuto INVIO (che corrisponde al numero 13 della mappatura dei tasti) e se nell'input c'è scritto qualcosa
+      $('.myInput').val(' '); //faccio le stesse e identiche cose che vengono fatte anche con il click più sopra
+      aggiungiLista(nuovoInserimento);
+    }
+  });
 
-$(document).on('click', '.delete', function(){
+$(document).on('click', '.delete', function(){ //al click sull'icona del bidone della spazzatura
   var deleteId = $(this).parent().attr('data-id'); //su quel singolo elemento cliccato (icona bidone spazzatura) vado a prendermi l'attributo del data assegnato al padre (cioè il data dell'li, perchè l'icona cliccata è dentro l'li e quindi è figlio). Quindi recupero l'id che serve per il metodo delete.
-  cancellaLista(deleteId);
+  cancellaLista(deleteId); //chiamo la mia funzione passandogli come argomento l'id recuperato prima
 });
 
 
@@ -60,8 +67,8 @@ function aggiungiLista(parola) {
 //funzione che tramite una chiamata ajax mi cancella un elemento selezionato della lista
 function cancellaLista(id) {
   $.ajax({
-    url : 'http://157.230.17.132:' + PORTA + '/' + id, //aggiungo l'id recuperato prima
-    method : 'DELETE', //elimino dei dati
+    url : 'http://157.230.17.132:' + PORTA + '/' + id, //aggiungo l'id che mi viene passato come argomento
+    method : 'DELETE', //elimino dei dati (cioè tutto ciò che fa parte dell'id passato in funzione)
     success : function(data) {
         creaLista(); //richiamo la funzione che mi stampa il template aggiornato senza l'elemento che ho scelto di eliminare
     },
@@ -70,6 +77,5 @@ function cancellaLista(id) {
     }
   });
 }
-
 
 });
