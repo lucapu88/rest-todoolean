@@ -3,3 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.myInput {
+  margin: 0px 10px 0px 10px;
+  width: 200px;
+}
+#lista-container li {
+  display: flex;
+  justify-content: center;
+}
