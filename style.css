@@ -3,13 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-
-}
 header {
   display: flex;
   justify-content: center;
   padding: 10px;
+}
+h1 {
+  font-family: 'Seymour One', sans-serif;
 }
 .myInput {
   margin: 0px 10px 0px 10px;
@@ -18,10 +18,13 @@ header {
 main {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
 }
 #lista-container {
   background-color: #F3E487;
-  padding: 10px;
+  padding: 20px;
 }
 #lista-container li {
   display: flex;
