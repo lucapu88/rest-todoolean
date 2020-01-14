@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-image: url('https://www.lignumvenetia.com/img/nodi-e-aspetto-del-legno-xs.jpg');
+}
 header {
   display: flex;
   justify-content: center;
@@ -13,7 +16,8 @@ h1 {
 }
 .myInput {
   margin: 0px 10px 0px 10px;
-  width: 200px;
+  width: 250px;
+  padding: 5px;
 }
 .add {
   padding: 5px 10px;
@@ -24,7 +28,7 @@ main {
   justify-content: center;
   margin-top: 10px;
   font-family: 'Lobster', cursive;
-  font-size: 20px;
+  font-size: 25px;
 }
 #lista-container {
   background-color: #F3E487;
@@ -37,11 +41,12 @@ main {
 }
 .delete, .edit, .save {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 25px;
   margin: 0px 10px 0px 10px;
 }
 .editText {
   border: none;
+  background-color: #F3E487;
   border-bottom: 1px solid grey;
 }
 .editText, .save {
