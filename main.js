@@ -36,15 +36,14 @@ $(document).on('click', '.save', function(){ //al click sull'icona del del flopp
 });
 
 
-
 //------------------------------------------FUNZIONI-----------------------------------------------------
 //funzione che tramite una chiamata ajax mi popola il template e mi appende una lista
 function creaLista() {
   $.ajax({
-    url : 'http://157.230.17.132:' + PORTA,
+    url : 'http://157.230.17.132:' + PORTA, //la mia porta è nascosta in un altro file, per evitare che qualcuno vada a modificare il mio contenuto
     method : 'GET', //chiedo dei dati
     success : function(data) {
-      $('#lista-container').empty();
+      $('#lista-container').empty(); //svuoto il contenitore della lista così non appende più volte la stessa cosa
       for (var i = 0; i < data.length; i++) { //ciclo il contenuto della mia porta
         var context = { //creo il contenuto che andrà dentro l'li
           elemento : data[i].text, //dentro l'li ci va ciò che c'è scritto in text
