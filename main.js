@@ -17,11 +17,24 @@ $('.myInput').keypress(function(event) { //quando si è in posizione dell'input 
       aggiungiLista(nuovoInserimento);
     }
   });
-
 $(document).on('click', '.delete', function(){ //al click sull'icona del bidone della spazzatura
   var deleteId = $(this).parent().attr('data-id'); //su quel singolo elemento cliccato (icona bidone spazzatura) vado a prendermi l'attributo del data assegnato al padre (cioè il data dell'li, perchè l'icona cliccata è dentro l'li e quindi è figlio). Quindi recupero l'id che serve per il metodo delete.
   cancellaLista(deleteId); //chiamo la mia funzione passandogli come argomento l'id recuperato prima
 });
+$(document).on('click', '.edit', function(){ //al click sull'icona del della matita
+  var liTodo = $(this).parent(); //recupero il tag dell'li
+  liTodo.find('.elemento').addClass('hidden'); //nascondo il tag dell'li
+  liTodo.find('.editText').addClass('active'); //mostro l'altro input per modificarlo
+  liTodo.find('.edit').addClass('hidden'); //nascondo l'icona della matita
+  liTodo.find('.save').addClass('active'); //mostro il floppy disk
+});
+$(document).on('click', '.save', function(){ //al click sull'icona del del floppy disk
+  var editId = $(this).parent().attr('data-id'); //come ho fatto con delete, faccio lo stesso ma sull'icona della matita
+  var liTodo = $(this).parent(); //recupero il tag dell'li
+  var editText = liTodo.find('.editText').val(); //del tag dell'li, cerco l'input all'interno, e mi prendo quello che ci scrive l'utente
+  modificaLista(editId, editText); //chiamo la mia funzione passandogli come argomento l'id del todo da modificare e il testo dell'input che l'utente andrà a scrivere
+});
+
 
 
 //------------------------------------------FUNZIONI-----------------------------------------------------
@@ -47,7 +60,7 @@ function creaLista() {
   });
 }
 
-//funzione che tramite una chiamata ajax mi modifica la lista
+//funzione che tramite una chiamata ajax mi aggiunge un elemento alla lista
 function aggiungiLista(parola) {
   $.ajax({
     url : 'http://157.230.17.132:' + PORTA,
@@ -74,6 +87,23 @@ function cancellaLista(id) {
     },
     error : function() {
           alert('cancellaLista error');
+    }
+  });
+}
+
+//funzione che tramite una chiamata ajax mi modifica un elemento selezionato della lista
+function modificaLista(id, parola) {
+  $.ajax({
+    url : 'http://157.230.17.132:' + PORTA + '/' + id, //aggiungo l'id che mi viene passato come argomento
+    method : 'PUT', //modifico/invio dei dati
+    data : {
+      text : parola //creo un nuovo contenuto (che sarà quello digitato dall'utente una volta cliccata la matita) che andrà dentro l'li al posto di quello che già c'era
+    },
+    success : function(data) {
+        creaLista(); //richiamo la funzione che mi stampa il template aggiornato con il contenuto modificato
+    },
+    error : function() {
+          alert('modificaLista error');
     }
   });
 }

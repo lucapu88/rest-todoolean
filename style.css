@@ -21,7 +21,22 @@ main {
   list-style-type: none;
   margin: 5px;
 }
-.delete, .edit {
+.delete, .edit, .save {
   cursor: pointer;
   margin: 0px 5px 0px 5px;
+}
+.editText, .save {
+  display: none;
+}
+.editText.active {
+  display: inline-block;
+}
+.edit.hidden {
+  display: none;
+}
+.save.active {
+  display: inline-block;
+}
+.elemento.hidden {
+  display: none;
 }

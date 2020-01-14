@@ -23,8 +23,13 @@
     </main>
     <script id="myTemplate" type="text/x-handlebars-template">
       <li data-id= {{ id }}>
-        <i class="far fa-trash-alt delete"></i> {{ elemento }} <i class="far fa-edit edit"></i>
+        <i class="far fa-trash-alt delete"></i>
+        <span class="elemento">{{ elemento }}</span>
+        <i class="far fa-edit edit"></i>
+        <input class="editText" type="text" name="" value="{{ elemento }}">
+        <i class="far fa-save save"></i>
       </li>
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="porta.js" charset="utf-8"></script>
