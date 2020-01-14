@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+
+}
 header {
   display: flex;
   justify-content: center;
@@ -16,6 +19,10 @@ main {
   display: flex;
   justify-content: center;
 }
+#lista-container {
+  background-color: #F3E487;
+  padding: 10px;
+}
 #lista-container li {
   display: flex;
   list-style-type: none;
@@ -23,7 +30,12 @@ main {
 }
 .delete, .edit, .save {
   cursor: pointer;
-  margin: 0px 5px 0px 5px;
+  font-size: 18px;
+  margin: 0px 10px 0px 10px;
+}
+.editText {
+  border: none;
+  border-bottom: 1px solid grey;
 }
 .editText, .save {
   display: none;
