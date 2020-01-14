@@ -11,6 +11,10 @@ header {
   justify-content: center;
   padding: 10px;
 }
+.punes {
+  color: red;
+  padding: 5px;
+}
 h1 {
   font-family: 'Seymour One', sans-serif;
 }
